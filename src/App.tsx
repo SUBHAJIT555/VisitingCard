@@ -184,7 +184,7 @@ function App() {
             />
           </div>
           <div className="relative z-10">
-            <h1 className="text-2xl font-bold leading-tight sm:text-3xl">Subhajit Dhali</h1>
+            <h1 className="text-2xl font-bold leading-tight sm:text-3xl">Alexender Grahambel</h1>
             <p className="mt-1 text-sm text-neutral-600 sm:text-base">{contactTitle}</p>
             <p className="text-sm font-medium text-neutral-500 sm:text-base">{contactCompany}</p>
           </div>
