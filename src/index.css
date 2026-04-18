@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/font/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    background: #f5f5f5;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  }
+
+  .font-inter-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
