@@ -10,15 +10,51 @@ type Detail = {
 }
 
 function App() {
+  const contactName = "Subhajit Dhali"
+  const contactEmail = "subhajitdhali@gmail.com"
+  const contactMobile = "+1 (555) 123-4567"
+  const contactWork = "+1 (555) 987-6543"
+  const contactLinkedin = "https://linkedin.com/in/subhajit-dhali"
+  const contactWebsite = "https://corporategiftsdubaii.ae"
+  const contactTitle = "Design Engineer"
+  const contactCompany = "Baharnani Advertising LLC"
+
   const details: Detail[] = [
-    { label: "Email ID", value: "subhajitdhali@gmail.com", href: "mailto:subhajitdhali@gmail.com", icon: "mail" },
-    { label: "Mobile", value: "+1 (555) 123-4567", href: "tel:+15551234567", icon: "mobile" },
-    { label: "Work", value: "+1 (555) 987-6543", href: "tel:+15559876543", icon: "work" },
+    { label: "Email ID", value: contactEmail, href: `mailto:${contactEmail}`, icon: "mail" },
+    { label: "Mobile", value: contactMobile, href: "tel:+15551234567", icon: "mobile" },
+    { label: "Work", value: contactWork, href: "tel:+15559876543", icon: "work" },
     { label: "LinkedIn Profile", value: "linkedin.com/in/subhajit-dhali", href: "https://linkedin.com/in/subhajit-dhali", icon: "linkedin" },
     { label: "Company Website", value: "corporategiftsdubaii.ae", href: "https://corporategiftsdubaii.ae", icon: "website" },
   ]
 
   const saveIconGradientId = `save-icon-gradient-${useId().replace(/:/g, "")}`
+
+  const handleSaveContact = () => {
+    const vcfContent = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      `FN:${contactName}`,
+      "N:Dhali;Subhajit;;;",
+      `ORG:${contactCompany}`,
+      `TITLE:${contactTitle}`,
+      `EMAIL;TYPE=INTERNET:${contactEmail}`,
+      "TEL;TYPE=CELL:+15551234567",
+      "TEL;TYPE=WORK:+15559876543",
+      `URL:${contactWebsite}`,
+      `X-SOCIALPROFILE;TYPE=linkedin:${contactLinkedin}`,
+      "END:VCARD",
+    ].join("\r\n")
+
+    const blob = new Blob([vcfContent], { type: "text/vcard;charset=utf-8" })
+    const fileUrl = URL.createObjectURL(blob)
+    const anchor = document.createElement("a")
+    anchor.href = fileUrl
+    anchor.download = "subhajit-dhali.vcf"
+    document.body.appendChild(anchor)
+    anchor.click()
+    document.body.removeChild(anchor)
+    URL.revokeObjectURL(fileUrl)
+  }
 
   const renderIcon = (icon: DetailIcon): JSX.Element => {
     const baseClass = "h-5 w-5 text-neutral-700"
@@ -149,8 +185,8 @@ function App() {
           </div>
           <div className="relative z-10">
             <h1 className="text-2xl font-bold leading-tight sm:text-3xl">Subhajit Dhali</h1>
-            <p className="mt-1 text-sm text-neutral-600 sm:text-base">Design Engineer</p>
-            <p className="text-sm font-medium text-neutral-500 sm:text-base">Baharnani Advertising LLC</p>
+            <p className="mt-1 text-sm text-neutral-600 sm:text-base">{contactTitle}</p>
+            <p className="text-sm font-medium text-neutral-500 sm:text-base">{contactCompany}</p>
           </div>
          
         </section>
@@ -180,7 +216,11 @@ function App() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 border-t border-neutral-300 bg-white/10 px-3 py-3 backdrop-blur-sm sm:px-6">
         <div className="mx-auto max-w-xl">
-          <button className="pointer-events-auto group w-full rounded-xl bg-linear-to-r from-[#862574] to-[#4F1D81] px-6 py-4 text-sm font-semibold text-white shadow-lg ring-1 ring-black/10 transition duration-200  hover:from-[#752466] hover:to-[#43196e] hover:shadow-xl  active:brightness-95">
+          <button
+            type="button"
+            onClick={handleSaveContact}
+            className="pointer-events-auto group w-full rounded-xl bg-linear-to-r from-[#862574] to-[#4F1D81] px-6 py-4 text-sm font-semibold text-white shadow-lg ring-1 ring-black/10 transition duration-200  hover:from-[#752466] hover:to-[#43196e] hover:shadow-xl  active:brightness-95"
+          >
             <span className="flex items-center justify-center gap-2">
               <svg
                 viewBox="0 0 24 24"
