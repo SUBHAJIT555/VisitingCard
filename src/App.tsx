@@ -10,7 +10,7 @@ type Detail = {
 }
 
 function App() {
-  const contactName = "Subhajit Dhali"
+  const contactName = "Alexender Grahambel"
   const contactEmail = "subhajitdhali@gmail.com"
   const contactMobile = "+1 (555) 123-4567"
   const contactWork = "+1 (555) 987-6543"
