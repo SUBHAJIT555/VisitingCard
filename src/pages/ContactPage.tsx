@@ -26,15 +26,13 @@ export default function ContactPage() {
     }
   }, [])
 
-  const numericId = idParam !== undefined ? Number.parseInt(idParam, 10) : Number.NaN
-  const contact =
-    contacts !== null && Number.isFinite(numericId) ? contacts.find((c) => c.id === numericId) : undefined
+  const contact = contacts !== null && idParam !== undefined ? contacts.find((c) => c.id === idParam) : undefined
 
   const details = useMemo(() => (contact ? buildContactDetails(contact) : []), [contact])
 
   const handleSaveContact = () => {
-    if (!Number.isFinite(numericId)) return
-    window.open(contactPhpDownloadUrl(numericId), "_blank", "noopener,noreferrer")
+    if (!idParam) return
+    window.open(contactPhpDownloadUrl(idParam), "_blank", "noopener,noreferrer")
   }
 
   if (error) {

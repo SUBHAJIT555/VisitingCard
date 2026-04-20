@@ -12,7 +12,7 @@ function isContactRecord(value: unknown): value is Contact {
   if (typeof value !== "object" || value === null) return false;
   const o = value as Record<string, unknown>;
   if (
-    typeof o.id !== "number" ||
+    typeof o.id !== "string" ||
     typeof o.name !== "string" ||
     typeof o.phone !== "string" ||
     typeof o.email !== "string" ||
@@ -58,10 +58,10 @@ export function imageSrc(imagePath: string): string {
   return `/${imagePath.replace(/^\//, "")}`;
 }
 
-export function contactPhpDownloadUrl(id: number): string {
+export function contactPhpDownloadUrl(id: string): string {
   const base =
     import.meta.env.VITE_CONTACT_PHP_URL?.replace(/\/?$/, "") ??
     "http://192.168.31.127/visitingcard/contact.php";
   const sep = base.includes("?") ? "&" : "?";
-  return `${base}${sep}id=${id}`;
+  return `${base}${sep}id=${encodeURIComponent(id)}`;
 }
