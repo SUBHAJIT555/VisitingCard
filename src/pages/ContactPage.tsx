@@ -40,9 +40,9 @@ export default function ContactPage() {
       <main className="font-inter min-h-screen bg-neutral-100 px-4 py-10 text-neutral-900">
         <div className="mx-auto max-w-lg rounded-2xl border border-neutral-200 bg-white p-8 text-center shadow-md">
           <p className="text-neutral-700">{error}</p>
-          <Link to="/" className="mt-6 inline-block text-sm font-semibold text-[#4F1D81] hover:underline">
+          {/* <Link to="/" className="mt-6 inline-block text-sm font-semibold text-[#4F1D81] hover:underline">
             Back to contacts
-          </Link>
+          </Link> */}
         </div>
       </main>
     )
@@ -77,12 +77,12 @@ export default function ContactPage() {
         <div className="mx-auto max-w-lg rounded-2xl border border-neutral-200 bg-white p-10 text-center shadow-md">
           <p className="text-lg font-semibold text-neutral-900">User not found</p>
           <p className="mt-2 text-sm text-neutral-600">This contact does not exist or the link is invalid.</p>
-          <Link
+          {/* <Link
             to="/"
             className="mt-8 inline-flex items-center justify-center rounded-xl bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white"
           >
             All contacts
-          </Link>
+          </Link> */}
         </div>
       </main>
     )
@@ -90,7 +90,7 @@ export default function ContactPage() {
 
   return (
     <main className="font-inter min-h-screen bg-neutral-100 px-3 pt-4 pb-28 text-neutral-900 sm:px-6 sm:pt-8 sm:pb-32 max-w-2xl mx-auto">
-      <Link
+      {/* <Link
         to="/"
         className="mb-3 inline-flex items-center gap-1 text-sm font-medium text-neutral-600 transition hover:text-neutral-900 sm:hidden"
       >
@@ -98,7 +98,7 @@ export default function ContactPage() {
           <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         Contacts
-      </Link>
+      </Link> */}
 
       <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-neutral-300 bg-white ring-1 ring-neutral-300 ring-offset-2">
         <section className="relative grid items-center gap-4 overflow-hidden border-b border-neutral-200 px-4 py-4 sm:grid-cols-[116px_1fr_120px] sm:px-6">
@@ -119,12 +119,12 @@ export default function ContactPage() {
             <p className="text-sm font-medium text-neutral-500 sm:text-base">{contact.company}</p>
           </div>
           <div className="relative z-10 hidden sm:flex sm:items-start sm:justify-end">
-            <Link
+            {/* <Link
               to="/"
               className="text-xs font-semibold uppercase tracking-wider text-neutral-500 transition hover:text-neutral-800"
             >
               All contacts
-            </Link>
+            </Link> */}
           </div>
         </section>
 
